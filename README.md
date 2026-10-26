@@ -4,7 +4,7 @@ Idaho Statutes (Idaho Code) — current statutory text by citation, amendment
 history, and topic/keyword search over official chapter and section
 catchlines, sourced live from legislature.idaho.gov.
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1784+ live data sources. This is an independent, unofficial integration — not affiliated with, endorsed by, or published by the upstream provider.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1881+ live data sources. This is an independent, unofficial integration — not affiliated with, endorsed by, or published by the upstream provider.
 
 ## Tools
 
@@ -115,6 +115,19 @@ captured). Re-run it after a legislative session's codification pass:
 node scripts/bake-index.mjs > src/id-index-data.ts
 ```
 
+### Titles carried forward (partial bakes)
+
+If the publisher's pages for a whole title are unavailable at bake time, the bake
+script (`KNOWN_UNAVAILABLE_TITLES`) keeps that title's rows from the previous bake
+rather than dropping a title that still exists. Those rows are never re-stamped:
+`ID_CARRIED_FORWARD` records, per title, when they were last verified, and the pack
+says so in the payload. `id_search` marks each carried row (`carried_forward`,
+`index_captured_at`), sets `data_as_of` to the OLDEST verification date among the rows
+returned (the bake date is `index_baked_at`) and adds `carried_forward_note`.
+`id_statute` for a section in such a title returns `reason: "publisher_unavailable"`
+with the same note instead of claiming the chapter does not exist.
+Currently carried: Title 22 (last verified 2026-10-07).
+
 ## Quick Start
 
 Add to your MCP client (Claude Desktop, Cursor, Windsurf, etc.):
@@ -159,7 +172,7 @@ directly, instead of just this one's:
 }
 ```
 
-Both URLs reach the same gateway and the same 1784+ data sources. The
+Both URLs reach the same gateway and the same 1881+ data sources. The
 only difference is which pack's tools are listed **directly**; `ask_pipeworx`
 reaches all of them from either one.
 

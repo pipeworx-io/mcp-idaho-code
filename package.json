@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-idaho-code",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Idaho Statutes — state statutes by citation and by topic. Fleet #2747.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-5cf094bd89970dc5ecb85357daebc1f5880f40f027241115d32e73694063d2d7",
-    "sourceCommit": "3723e46c6d115bd4a1fd2175e6bf758555e7cb50"
+    "sourceHash": "v1-ae448c8f1c939fa7ba2dd05b3feca69d4bf4b7d82377d34c22b22319ac0a0535",
+    "sourceCommit": "24e32b525f9c0b2fd7d94b519b08abb108cc11cd"
   }
 }
