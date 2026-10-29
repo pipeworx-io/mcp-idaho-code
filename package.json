@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-idaho-code",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Idaho Statutes — state statutes by citation and by topic. Fleet #2747.",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-idaho-code": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "idaho-code"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-idaho-code.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/idaho-code",
   "pipeworx": {
-    "sourceHash": "v1-ae448c8f1c939fa7ba2dd05b3feca69d4bf4b7d82377d34c22b22319ac0a0535",
-    "sourceCommit": "24e32b525f9c0b2fd7d94b519b08abb108cc11cd"
+    "mode": "gateway",
+    "slug": "idaho-code",
+    "gatewaySlug": "idaho-code",
+    "sourceHash": "v1-c18885cb6d37039ebf7066893f461da5e8e0d233ad710acc9889d7ad7f5fe95e",
+    "sourceCommit": "4844029e402d6bd2fe735add8abf6d46735f8ed5"
   }
 }
